@@ -1,0 +1,10 @@
+https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&dsh=S-1576700190%3A1763007950937199&emr=1&followup=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&ifkv=ARESoU2lHKvTqtKb3OhS98keMdwdhU4566dRJPOlVurmgaxwhR5WZWA9zo07TC_0f8-gZXIazsMp&osid=1&passive=1209600&service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin
+https://copilot.microsoft.com/
+https://github.com/login
+https://suckless.org/rocks/
+https://support.mozilla.org/en-US/kb/keyboard-shortcuts-perform-firefox-tasks-quickly#w_windows-tabs
+https://robertterupo-png.github.io/rterupo-website/
+https://github.com/robertterupo-png/robertterupo-website
+https://robertterupo-png.github.io/robertterupo-website/main.html
+file:///home/robert/github/robertterupo-website/contacts.html
+https://robertterupo-png.github.io/rterupo-website/

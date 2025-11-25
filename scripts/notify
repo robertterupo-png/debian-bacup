@@ -1,0 +1,10 @@
+#!/bin/sh
+# notify.sh — wrapper for herbe notifications
+# Usage: notify "Message text"
+
+if [ $# -eq 0 ]; then
+    exit 1
+fi
+
+herbe "$*"
+

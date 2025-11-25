@@ -1,0 +1,41 @@
+pinentry.c:157:12: warning: ‘lc_ctype_unknown_warning’ defined but not used [-Wunused-variable]
+  157 | static int lc_ctype_unknown_warning = 0;
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~
+secmem.c: In function ‘init_pool’:
+secmem.c:193:12: warning: variable ‘pgsize’ set but not used [-Wunused-but-set-variable]
+  193 |     size_t pgsize;
+      |            ^~~~~~
+In file included from secmem.c:44:
+secmem.c: In function ‘secmem_free’:
+util.h:53:37: warning: overflow in conversion from ‘int’ to ‘char’ changes value from ‘255’ to ‘-1’ [-Woverflow]
+   53 |               while(_vlen) { *_vptr=(_set); _vptr++; _vlen--; } \
+      |                                     ^
+secmem.c:405:5: note: in expansion of macro ‘wipememory2’
+  405 |     wipememory2(mb, 0xff, size );
+      |     ^~~~~~~~~~~
+util.h:53:37: warning: overflow in conversion from ‘int’ to ‘char’ changes value from ‘170’ to ‘-86’ [-Woverflow]
+   53 |               while(_vlen) { *_vptr=(_set); _vptr++; _vlen--; } \
+      |                                     ^
+secmem.c:406:5: note: in expansion of macro ‘wipememory2’
+  406 |     wipememory2(mb, 0xaa, size );
+      |     ^~~~~~~~~~~
+secmem.c: In function ‘secmem_term’:
+util.h:53:37: warning: overflow in conversion from ‘int’ to ‘char’ changes value from ‘255’ to ‘-1’ [-Woverflow]
+   53 |               while(_vlen) { *_vptr=(_set); _vptr++; _vlen--; } \
+      |                                     ^
+secmem.c:428:5: note: in expansion of macro ‘wipememory2’
+  428 |     wipememory2( pool, 0xff, poolsize);
+      |     ^~~~~~~~~~~
+util.h:53:37: warning: overflow in conversion from ‘int’ to ‘char’ changes value from ‘170’ to ‘-86’ [-Woverflow]
+   53 |               while(_vlen) { *_vptr=(_set); _vptr++; _vlen--; } \
+      |                                     ^
+secmem.c:429:5: note: in expansion of macro ‘wipememory2’
+  429 |     wipememory2( pool, 0xaa, poolsize);
+      |     ^~~~~~~~~~~
+secmem.c: At top level:
+secmem.c:103:14: warning: ‘pool_is_mmapped’ defined but not used [-Wunused-variable]
+  103 | static int   pool_is_mmapped;
+      |              ^~~~~~~~~~~~~~~
+/usr/bin/ld: cannot find -lgpgme: No such file or directory
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:33: pinentry-dmenu] Error 1

@@ -1,0 +1,26 @@
+#!/bin/sh
+
+typeit=0
+if [ "$1" = "--type" ]; then
+    typeit=1
+    shift
+fi
+
+dmenu=dmenu
+xdotool="xdotool type --clearmodifiers --file -"
+
+prefix="${PASSWORD_STORE_DIR:-$HOME/.password-store}"
+
+# Collect all .gpg files under prefix
+password_files=$(find "$prefix" -type f -name '*.gpg' \
+    | sed "s|^$prefix/||;s|\.gpg$||")
+
+password=$(printf '%s\n' $password_files | "$dmenu" -i -l 10 "$@")
+
+[ -n "$password" ] || exit 0
+
+if [ "$typeit" -eq 0 ]; then
+    pass show -c "$password" 2>/dev/null
+else
+    pass show "$password" | { IFS= read -r pass; printf %s "$pass"; } | $xdotool
+fi

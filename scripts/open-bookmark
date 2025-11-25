@@ -1,0 +1,18 @@
+#!/bin/sh
+# open-bookmark.sh — select URL from bookmarks and open in Firefox-ESR
+
+bookmark_file="$HOME/bookmarks.txt"
+
+# show bookmarks in dmenu
+url=$(grep -v '^$' "$bookmark_file" | sort -u | dmenu -i -l 10 -p "Open bookmark:")
+
+# if a URL was selected
+if [ -n "$url" ]; then
+    # open in a new tab of Firefox-ESR
+    firefox-esr --new-tab "$url" &
+
+    notify "Opened in new tab: $url"
+else
+    notify "Cancelled: No bookmark selected"
+fi
+

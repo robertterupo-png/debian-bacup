@@ -1,0 +1,32 @@
+#!/bin/sh
+# bookmark.sh — save current Firefox URL into ~/bookmarks.txt
+# Dependencies: xdotool, xclip, notify (herbe wrapper)
+
+export DISPLAY=:0
+export XAUTHORITY="$HOME/.Xauthority"
+
+# Focus the address bar and copy URL
+xdotool key ctrl+l
+sleep 0.3
+xdotool key ctrl+c
+sleep 0.3
+
+# Read clipboard contents
+clipboard=$(xclip -o -selection clipboard | tr -d '\n' | sed 's/[[:space:]]*$//')
+bookmark_file="$HOME/bookmarks.txt"
+
+if [ -z "$clipboard" ]; then
+	notify "Clipboard: $(xclip -o -selection clipboard)"
+
+    #notify "Error: Clipboard empty"
+    exit 1
+fi
+
+if grep -Fxq "$clipboard" "$bookmark_file"; then
+    notify "Duplicate: Already bookmarked"
+else
+    printf '%s\n' "$clipboard" >> "$bookmark_file"
+    sort -u "$bookmark_file" -o "$bookmark_file"
+    notify "Bookmarked: $clipboard"
+fi
+
